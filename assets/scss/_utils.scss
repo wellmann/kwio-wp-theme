@@ -1,0 +1,65 @@
+@use "variables" as *;
+
+.alignfull {
+  margin-inline: $block-padding-inline * -1;
+  padding-inline: $block-padding-inline;
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+@each $name, $color in $colors {
+  .has-#{$name}-background-color {
+    background-color: $color;
+  }
+
+  .has-#{$name}-color {
+    color: $color;
+  }
+}
+
+@each $name, $family in $font-families {
+  .has-#{$name}-font-family {
+    font-family: $family;
+  }
+}
+
+@each $name, $size in $font-sizes {
+  .has-#{$name}-font-size {
+    font-size: $size;
+  }
+}
+
+@each $value in ("block", "flex", "grid") {
+  .d-#{$value} {
+    display: $value;
+  }
+}
+
+@each $value in ("center", "space-between", "space-around", "space-evenly", "flex-start", "flex-end") {
+  .jc-#{$value} {
+    justify-content: $value;
+  }
+
+  .ai-#{$value} {
+    align-items: $value;
+  }
+
+  .ji-#{$value} {
+    justify-items: $value;
+  }
+
+  .ac-#{$value} {
+    align-content: $value;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "kwio-wp-theme",
+  "version": "1.0.0",
+  "config": {
+    "themeDistDir": "dist",
+    "themeScssIncludesDir": "assets/scss",
+    "defaultBlockCategory": "content",
+    "scssDefaultImports": [
+      "variables.scss"
+    ]
+  },
+  "scripts": {
+    "start": "npm run watch",
+    "watch": "webpack -w --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "@wellmann/gutenberg-blocks-components": "git+https://git@github.com/wellmann/gutenberg-blocks-components.git#2ebb91ec8b2922bb0ebad62b2ae0b1597fad4a7a",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "palette-webpack-plugin": "^1.0.5"
+  }
+}

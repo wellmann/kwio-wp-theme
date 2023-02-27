@@ -1,0 +1,90 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8ff25fbbdbc899f974e94f3fda7ade19",
+    "packages": [
+        {
+            "name": "kwio/gutenberg-blocks-framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wellmann/gutenberg-blocks-framework.git",
+                "reference": "c34b923480f80e45bcca9244ef54aaf6706bc4e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wellmann/gutenberg-blocks-framework/zipball/c34b923480f80e45bcca9244ef54aaf6706bc4e9",
+                "reference": "c34b923480f80e45bcca9244ef54aaf6706bc4e9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "brain/monkey": "^2.6",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "^0.12.94",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "szepeviktor/phpstan-wordpress": "^0.7.7",
+                "timber/timber": "^1.18"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KWIO\\GutenbergBlocks\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "KWIO\\GutenbergBlocks\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "phpstan analyse src --memory-limit 500M"
+                ],
+                "build:cc": [
+                    "php -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-html coverage/"
+                ],
+                "cs:check": [
+                    "phpcs src"
+                ],
+                "cs:fix": [
+                    "phpcbf src"
+                ],
+                "test": [
+                    "phpunit"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Kevin Wellmann",
+                    "email": "kevin@wellmann.io"
+                }
+            ],
+            "description": "Library to load custom Gutenberg blocks.",
+            "support": {
+                "source": "https://github.com/wellmann/gutenberg-blocks-framework/tree/master",
+                "issues": "https://github.com/wellmann/gutenberg-blocks-framework/issues"
+            },
+            "time": "2023-02-12T20:25:37+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "kwio/gutenberg-blocks-framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

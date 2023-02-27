@@ -1,0 +1,40 @@
+$colors: (
+  "primary": #000,
+  "secondary": #fff,
+  "accent-1": #ff0000,
+  "accent-2": #00ff00,
+  "accent-3": #0000ff
+);
+
+$text-color: map-get($colors, "primary");
+$text-color-inverted: map-get($colors, "secondary");
+
+$font-sizes: (
+  "600": 44px,
+  "500": 32px,
+  "400": 24px,
+  "300": 20px,
+  "200": 18px,
+  "100": 16px
+);
+
+$font-families: (
+  "base": "sans-serif",
+  "headings": "serif",
+);
+
+$block-gap: 60px;
+$block-inner-width: 800px;
+$block-padding-inline: 20px;
+
+$mobile-breakpoint: 680px;
+$mobile-breakpoint-navigation: 850px;
+
+// Usage in strings: #{$theme-path}
+$theme-path : #{"../../.."} !default;
+
+// Export variables to JS.
+:export {
+  mobileBreakpoint: $mobile-breakpoint;
+  mobileBreakpointNavigation: $mobile-breakpoint-navigation;
+}

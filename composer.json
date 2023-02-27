@@ -1,0 +1,29 @@
+{
+  "name": "kwio/wp-theme",
+  "description": "Theme foundation.",
+  "type": "wordpress-theme",
+  "license": "GPL",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://ce-kw.github.io/satis/"
+    }
+  ],
+  "authors": [
+      {
+          "name": "Kevin Wellmann",
+          "email": "kevin@wellmann.io"
+      }
+  ],
+  "autoload": {
+    "files": [
+      "inc/utils.php",
+      "inc/reset.php",
+      "inc/loader.php",
+      "inc/custom.php"
+    ]
+  },
+  "require": {
+    "kwio/gutenberg-blocks-framework": "dev-master#c34b923480f80e45bcca9244ef54aaf6706bc4e9"
+  }
+}
