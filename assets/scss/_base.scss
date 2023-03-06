@@ -10,7 +10,6 @@
   }
 }
 
-:focus,
 :focus-visible {
   outline: 2px solid;
   outline-offset: 2px;
@@ -19,6 +18,15 @@
 ::selection {
   background-color: map-get($colors, "primary");
   color: $text-color-inverted;
+}
+
+:root {
+  @each $key, $value in $colors {
+    --color-#{$key}: #{$value};
+  }
+  @each $key, $value in $font-sizes {
+    --font-size-#{$key}: #{$value};
+  }
 }
 
 html {
@@ -32,10 +40,6 @@ body {
   --wp--style--global--content-size: #{$block-inner-width};
   --wp--style--global--wide-size: #{$block-inner-width};
 
-  @each $key, $value in $colors {
-    --kwio-color-#{$key}: #{$value};
-  }
-
   padding-inline: $block-padding-inline;
   font-family: map-get($font-families, "base");
   color: $text-color;
@@ -47,13 +51,19 @@ body {
   }
 }
 
+.wp-site-blocks > main {
+  margin-block-start: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  margin-block-end: .2em;
+  margin-block-end: .75em !important;
+  font-family: map-get($font-families, "headings");
   font-weight: bold;
+  line-height: 1.2;
 
   &:first-child,
   & + p {
-    margin-block-start: 0;
+    margin-block-start: 0 !important
   }
 }
 
@@ -62,7 +72,7 @@ h2 + h3,
 h3 + h4,
 h4 + h5,
 h5 + h6, {
-  margin-block-start: 0;
+  margin-block-start: 0 !important;
 }
 
 h1 {
@@ -91,6 +101,10 @@ h6 {
 
 p {
 
+  & + & {
+    margin-block-start: 1em !important;
+  }
+
   // Empty paragraph block can easily be overlooked in editor.
   &:empty {
     display: none;
@@ -98,19 +112,22 @@ p {
 
   @media (max-width: $mobile-breakpoint - 1) {
     &:first-child {
-      margin-block-start: 0;
+      margin-block-start: 0 !important;
     }
 
     &:last-child {
-      margin-block-end: 0;
+      margin-block-end: 0 !important;
     }
   }
 }
 
 a {
   color: currentColor;
-  text-decoration: underline;
-  text-underline-offset: .1em;
+  text-decoration: none;
+
+  main & {
+    text-decoration: underline;
+  }
 }
 
 figure {

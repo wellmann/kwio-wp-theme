@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ff25fbbdbc899f974e94f3fda7ade19",
+    "content-hash": "bf577cfbecd8f3eec3c524735aa329d0",
     "packages": [
         {
             "name": "kwio/gutenberg-blocks-framework",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wellmann/gutenberg-blocks-framework.git",
-                "reference": "c34b923480f80e45bcca9244ef54aaf6706bc4e9"
+                "reference": "17dfe8b87fc94988b8c51224a1f0feecf598a8da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wellmann/gutenberg-blocks-framework/zipball/c34b923480f80e45bcca9244ef54aaf6706bc4e9",
-                "reference": "c34b923480f80e45bcca9244ef54aaf6706bc4e9",
+                "url": "https://api.github.com/repos/wellmann/gutenberg-blocks-framework/zipball/17dfe8b87fc94988b8c51224a1f0feecf598a8da",
+                "reference": "17dfe8b87fc94988b8c51224a1f0feecf598a8da",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                 "source": "https://github.com/wellmann/gutenberg-blocks-framework/tree/master",
                 "issues": "https://github.com/wellmann/gutenberg-blocks-framework/issues"
             },
-            "time": "2023-02-12T20:25:37+00:00"
+            "time": "2023-03-05T15:32:39+00:00"
         }
     ],
     "packages-dev": [],

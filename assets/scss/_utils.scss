@@ -1,8 +1,17 @@
 @use "variables" as *;
+@use "functions" as f;
 
 .alignfull {
   margin-inline: $block-padding-inline * -1;
   padding-inline: $block-padding-inline;
+}
+
+.has-background {
+  padding-block: var(--wp--style--block-gap);
+
+  & + & {
+    margin-block-start: 0 !important;
+  }
 }
 
 .screen-reader-text {
@@ -21,6 +30,8 @@
 @each $name, $color in $colors {
   .has-#{$name}-background-color {
     background-color: $color;
+    --currentBgColor: #{$color};
+    color: f.contrast-by-luminance($color, $text-color, $text-color-inverted);
   }
 
   .has-#{$name}-color {

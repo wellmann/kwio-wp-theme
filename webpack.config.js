@@ -1,17 +1,9 @@
 let [editorConfig, frontendConfig] = require('@wellmann/gutenberg-blocks-components/configs/webpack.config');
 const fastGlob = require('fast-glob');
+const NoEmitPlugin = require('no-emit-webpack-plugin');
 const PalettePlugin = require('palette-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-
-editorConfig.plugins = [
-  ...editorConfig.plugins,
-  new webpack.DefinePlugin({
-    __filebasename: webpack.DefinePlugin.runtimeValue(
-      info => JSON.stringify(path.parse(info.module.resource).name)
-    )
-  })
-];
 
 frontendConfig.entry = {
   ...frontendConfig.entry,
@@ -20,6 +12,10 @@ frontendConfig.entry = {
 
 frontendConfig.plugins = [
   ...frontendConfig.plugins,
+  new NoEmitPlugin([
+    'critical.js',
+    'theme.critical.js'
+  ]),
   new PalettePlugin({
     output: 'color-palette.json',
     sass: {

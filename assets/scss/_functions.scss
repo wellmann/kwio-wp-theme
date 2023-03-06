@@ -1,0 +1,41 @@
+// https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+@function generate-clamp($min-px, $max-px, $min-bp: 400px, $max-bp: 1000px) {
+  $slope: math.div($max-px - $min-px, $max-bp - $min-bp);
+  $slope-vw: number-format($slope * 100, 2);
+  $intercept-rems: number-format(to-rem($min-px - $slope * $min-bp), 2);
+  $min-rems: number-format(to-rem($min-px), 2);
+  $max-rems: number-format(to-rem($max-px), 2);
+  @return clamp(#{$min-rems}, #{$slope-vw}vw + #{$intercept-rems}, #{$max-rems});
+}
+
+// https://codepen.io/dread-design/pen/dOGVXM
+@function contrast-by-luminance($color, $dark-color, $light-color) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  // Compute the perceptive luminance, keeping
+  // in mind that the human eye favors green.
+  $l: 1 - math.div(0.299 * $red + 0.587 * $green + 0.114 * $blue, 255);
+  /* arguably this should be 0.50, but testing out various colors, this seemed to be the best so far. */
+  @if ($l < 0.41) {
+    @return $dark-color
+  } @else {
+    @return $light-color;
+  }
+}
+
+// https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+@function number-format($number, $places: 0) {
+  $n: 1;
+  @if $places > 0 {
+    @for $i from 1 through $places {
+      $n: $n * 10;
+    }
+  }
+  @return math.div(math.round($number * $n), $n);
+}
+
+@function to-rem($value) {
+  $remValue: ($value / 16) + rem;
+  @return $remValue;
+}

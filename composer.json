@@ -24,6 +24,6 @@
     ]
   },
   "require": {
-    "kwio/gutenberg-blocks-framework": "dev-master#c34b923480f80e45bcca9244ef54aaf6706bc4e9"
+    "kwio/gutenberg-blocks-framework": "dev-master"
   }
 }

@@ -1,9 +1,8 @@
 <?php
-/**
- * This is the file for utility functions.
- */
 
  namespace KWIO\Theme;
+
+ use KWIO\GutenbergBlocks\BaseBlock;
 
  function get_icon(string $icon, string $className = ''): string {
     $iconSpritePath = get_dist_directory() . '/images/icon-sprite.svg';

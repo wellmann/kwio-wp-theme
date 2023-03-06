@@ -37,7 +37,12 @@ add_action('login_enqueue_scripts', function () {
 
 // Enqueue styles and scripts from build process.
 add_action('wp_enqueue_scripts', function () {
-    wp_add_inline_style(get_stylesheet() . '-blocks', file_get_contents(get_dist_directory() . '/theme.critical.css'));
+    $criticalCssPath = get_dist_directory() . '/theme.critical.css';
+    if (!is_readable($criticalCssPath)) {
+        return;
+    }
+
+    wp_add_inline_style('kwio-wp-blocks', file_get_contents($criticalCssPath));
 });
 
 // Add preload link tags for woff2 web fonts.
