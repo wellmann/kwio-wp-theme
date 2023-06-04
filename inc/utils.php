@@ -1,8 +1,9 @@
 <?php
 
- namespace KWIO\Theme;
+namespace KWIO\Theme;
 
- use KWIO\GutenbergBlocks\BaseBlock;
+use KWIO\GutenbergBlocks\BaseBlock;
+use KWIO\Theme\Component\BaseComponent;
 
  function get_icon(string $icon, string $className = ''): string {
     $iconSpritePath = get_dist_directory() . '/images/icon-sprite.svg';
@@ -36,7 +37,11 @@ function get_image_caption(int $imageId): string {
         return '';
     }
 
-    if ('attachment' !== $post->post_type) {
+    return $post->post_excerpt;
+}
+
+function get_image_description(int $imageId): string {
+    if (!$post = get_post($imageId)) {
         return '';
     }
 
@@ -92,4 +97,11 @@ function render_block(string $blockSlugOrClassName, array $attrs = []): string {
         'blockName' => get_stylesheet() .'/' . $blockSlugOrClassName,
         'attrs' => $attrs
     ]);
+}
+
+function render_component(BaseComponent $componentInstance): string {
+    $componentDirPath = dirname(__FILE__, 2) . '/components/';
+    $componentInstance->setDirPath($componentDirPath);
+
+    return $componentInstance->render();
 }

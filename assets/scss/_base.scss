@@ -10,23 +10,9 @@
   }
 }
 
-:focus-visible {
-  outline: 2px solid;
-  outline-offset: 2px;
-}
-
 ::selection {
-  background-color: map-get($colors, "primary");
-  color: $text-color-inverted;
-}
-
-:root {
-  @each $key, $value in $colors {
-    --color-#{$key}: #{$value};
-  }
-  @each $key, $value in $font-sizes {
-    --font-size-#{$key}: #{$value};
-  }
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--custom--color--body--text);
 }
 
 html {
@@ -36,19 +22,9 @@ html {
 }
 
 body {
-  --wp--style--block-gap: #{math.div($block-gap, 2)};
-  --wp--style--global--content-size: #{$block-inner-width};
-  --wp--style--global--wide-size: #{$block-inner-width};
-
-  padding-inline: $block-padding-inline;
-  font-family: map-get($font-families, "base");
-  color: $text-color;
-  line-height: 1.4;
+  padding-inline-start: var(--wp--style--root--padding-left);
+  padding-inline-end: var(--wp--style--root--padding-right);
   -webkit-font-smoothing: antialiased;
-
-  @media (min-width: $mobile-breakpoint) {
-    --wp--style--block-gap: #{$block-gap};
-  }
 }
 
 .wp-site-blocks > main {
@@ -57,9 +33,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin-block-end: .75em !important;
-  font-family: map-get($font-families, "headings");
-  font-weight: bold;
-  line-height: 1.2;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  white-space: unset;
+  text-wrap: balance;
 
   &:first-child,
   & + p {
@@ -73,30 +50,6 @@ h3 + h4,
 h4 + h5,
 h5 + h6, {
   margin-block-start: 0 !important;
-}
-
-h1 {
-  font-size: map-get($font-sizes, "600");
-}
-
-h2 {
-  font-size: map-get($font-sizes, "500");
-}
-
-h3 {
-  font-size: map-get($font-sizes, "400");
-}
-
-h4 {
-  font-size: map-get($font-sizes, "300");
-}
-
-h5 {
-  font-size: map-get($font-sizes, "200");
-}
-
-h6 {
-  font-size: map-get($font-sizes, "100");
 }
 
 p {
@@ -146,7 +99,7 @@ iframe {
 }
 
 .skip-link:focus {
-  background-color: map-get($colors, "primary");
+  background-color: pink;
   clip: auto !important;
   clip-path: none;
   color: $text-color-inverted;

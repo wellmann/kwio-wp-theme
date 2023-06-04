@@ -1,0 +1,39 @@
+:root {
+  --color--palette--primary: #111;
+  --color--palette--secondary: #fff;
+  --color--palette--accent-1: #FF4136;
+  --color--palette--accent-2: #2ECC40;
+  --color--palette--accent-3: #0074D9;
+
+  --custom--color--background: #fff;
+  --custom--color--text: #111;
+  --custom--color--link: #111;
+
+  --layout--contentSize: 960px;
+  --layout--wideSize: 1024px;
+
+  --spacing--spacingSizes--100: 4rem;
+  --spacing--spacingSizes--200: 8rem;
+  --spacing--spacingSizes--300: 16rem;
+  --spacing--spacingSizes--400: 32rem;
+  --spacing--spacingSizes--500: 64rem;
+
+  --spacing--blockGap: 3rem;
+
+  --typography--fontSizes--100--min: 12px;
+  --typography--fontSizes--100--max: 16px;
+  --typography--fontSizes--200--min: 14px;
+  --typography--fontSizes--200--max: 18px;
+  --typography--fontSizes--300--min: 16px;
+  --typography--fontSizes--300--max: 20px;
+  --typography--fontSizes--400--min: 18px;
+  --typography--fontSizes--400--max: 21px;
+  --typography--fontSizes--500--min: 26px;
+  --typography--fontSizes--500--max: 32px;
+  --typography--fontSizes--600--min: 36px;
+  --typography--fontSizes--600--max: 44px;
+
+  --typography--fontFamilies--base: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  --typography--fontFamilies--heading: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --typography--fontFamilies--mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+}

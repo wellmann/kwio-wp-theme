@@ -10,7 +10,7 @@ if (file_exists(get_template_directory() . '/vendor/autoload.php')) {
 
 $blocksLoader = new Loader(__FILE__);
 $blocksLoader
-    ->loadBlocks('blocks/', __NAMESPACE__)
+    ->loadBlocks('blocks/', __NAMESPACE__ . '\\Block')
     ->setCategories([
         [
             'slug'  => 'content',

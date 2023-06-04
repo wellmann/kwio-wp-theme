@@ -20,6 +20,7 @@
       "inc/utils.php",
       "inc/reset.php",
       "inc/loader.php",
+      "inc/component-loader.php",
       "inc/custom.php"
     ]
   },

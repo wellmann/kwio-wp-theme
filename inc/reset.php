@@ -46,15 +46,6 @@ add_action('after_setup_theme', function () {
 // Disable image down scaling during upload to preserve quality - espacially for jpgs.
 add_filter('big_image_size_threshold', '__return_false');
 
-// Remove layout settings from Gutenberg UI.
-add_filter('block_type_metadata', function ($metadata) {
-    if (isset($metadata['supports']['__experimentalLayout'])) {
-        $metadata['supports']['__experimentalLayout'] = false;
-    }
-
-    return $metadata;
-});
-
 // Disable external block directory in Gutenberg UI.
 remove_action('enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_assets');
 remove_action('enqueue_block_editor_assets', 'gutenberg_enqueue_block_editor_assets_block_directory');
@@ -110,12 +101,33 @@ add_action('wp_enqueue_scripts', function () {
     wp_dequeue_style('wp-block-library');
 }, 11);
 
-// Remove default color css variables and utility classes.
-remove_action('wp_footer', 'wp_enqueue_global_styles', 1);
+// Remove default css variables.
+add_filter('wp_theme_json_data_default', function($themeJson) {
+    if (is_admin()) {
+        return $themeJson;
+    }
 
-// Re-add general utility classes.
-add_action('wp_enqueue_scripts', function () {
-    wp_register_style('global-styles', false, [], true, true);
-	wp_add_inline_style('global-styles', wp_get_global_stylesheet(['styles']));
-	wp_enqueue_style('global-styles');
-}, 9);
+    $defaultData = $themeJson->get_data();
+
+    unset(
+        $defaultData['settings']['color'],
+        $defaultData['settings']['spacing'],
+        $defaultData['settings']['shadow'],
+        $defaultData['settings']['typography']['fontSizes']
+    );
+
+    return new class($defaultData) {
+
+        private $defaultData = [];
+
+        public function __construct($defaultData)
+        {
+            $this->defaultData = $defaultData;
+        }
+
+        public function get_data()
+        {
+            return $this->defaultData;
+        }
+    };
+});
