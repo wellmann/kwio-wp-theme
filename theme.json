@@ -92,55 +92,55 @@
         {
           "name": "100",
           "slug": "100",
-          "size": "16px",
+          "size": "1rem",
           "fluid": {
-            "min": "12px",
-            "max": "16px"
+            "min": "0.75rem",
+            "max": "1rem"
           }
         },
         {
           "name": "200",
           "slug": "200",
-          "size": "18px",
+          "size": "1.125rem",
           "fluid": {
-            "min": "14px",
-            "max": "18px"
+            "min": "0.875rem",
+            "max": "1.125rem"
           }
         },
         {
           "name": "300",
           "slug": "300",
-          "size": "20px",
+          "size": "1.25rem",
           "fluid": {
-            "min": "16px",
-            "max": "20px"
+            "min": "1rem",
+            "max": "1.25rem"
           }
         },
         {
           "name": "400",
           "slug": "400",
-          "size": "21px",
+          "size": "1.3125rem",
           "fluid": {
-            "min": "18px",
-            "max": "21px"
+            "min": "1.125rem",
+            "max": "1.3125rem"
           }
         },
         {
           "name": "500",
           "slug": "500",
-          "size": "32px",
+          "size": "2rem",
           "fluid": {
-            "min": "26px",
-            "max": "32px"
+            "min": "1.625rem",
+            "max": "2rem"
           }
         },
         {
           "name": "600",
           "slug": "600",
-          "size": "44px",
+          "size": "2.75rem",
           "fluid": {
-            "min": "36px",
-            "max": "44px"
+            "min": "2.25rem",
+            "max": "2.75rem"
           }
         }
       ],

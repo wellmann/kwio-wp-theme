@@ -9,6 +9,8 @@ const themeJson = require('../theme.edit.json');
 
 const humanizeSlug = (string) => string.replace(/-/g, ' ').replace(/\b\w/g, (s) => s.toUpperCase());
 
+const pxToRem = (pxValue, rootPxValue = 16) => (parseInt(pxValue) / rootPxValue) + 'rem';
+
 const transformPropertyToArray = (updatedThemeJson, rootKey, key, value, valueKey) => {
   const objectKeys = [rootKey, ...key.replace(/^--/, '').split('--')];
   const slug = objectKeys.pop(); // "primary" from --color--palette--primary: #111;
@@ -36,6 +38,7 @@ const transformFluidFontSizes = (updatedThemeJson, rootKey, key, value) => {
   const slug = objectKeys.pop(); // "100" from --typography--fontSizes--100--min: 16px;
   const name = humanizeSlug(slug);
   const objectValue = _.get(updatedThemeJson, objectKeys, []);
+  value = pxToRem(value);
 
   const minIndex = updatedThemeJson?.settings?.typography?.fontSizes?.findIndex(({ slug: s }) => s === slug);
   if (minIndex > -1) {
