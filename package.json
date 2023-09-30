@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "config": {
     "themeDistDir": "dist",
-    "themeScssIncludesDir": "assets/scss",
+    "themeScssIncludesDir": "assets/scss/_includes",
     "defaultBlockCategory": "content",
     "scssDefaultImports": [
+      "functions.scss",
+      "mixins.scss",
       "variables.scss"
     ]
   },
@@ -14,7 +16,8 @@
     "watch": "webpack -w --mode=development",
     "build": "webpack --mode=production",
     "testo": "sass assets/scss/_variables.scss | sass-export -o dist/token.json -d assets/scss/",
-    "postbuild": "node ./bin/generate-theme-json.js"
+    "postbuild": "node ./bin/generate-theme-json.js",
+    "theme-json-scss": "json-to-scss ./theme.json ./build/ --fk"
   },
   "dependencies": {
     "@wellmann/gutenberg-blocks-components": "git+https://git@github.com/wellmann/gutenberg-blocks-components.git#103244f0551e0d20081b186ebdbe645cc55ffaf4",
@@ -23,6 +26,7 @@
   "devDependencies": {
     "@automattic/remove-asset-webpack-plugin": "^1.0.19",
     "custom-property-extract": "^1.2.1",
+    "json-to-scss": "^1.6.2",
     "lodash": "^4.17.21"
   }
 }

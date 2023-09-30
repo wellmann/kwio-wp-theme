@@ -1,6 +1,6 @@
 {
   "name": "kwio/wp-theme",
-  "description": "Theme foundation.",
+  "description": "Theme foundation",
   "type": "wordpress-theme",
   "license": "GPL",
   "repositories": [
@@ -20,8 +20,8 @@
       "inc/utils.php",
       "inc/reset.php",
       "inc/loader.php",
-      "inc/component-loader.php",
-      "inc/custom.php"
+      "inc/custom.php",
+      "inc/command.php"
     ]
   },
   "require": {

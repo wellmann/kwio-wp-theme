@@ -3,7 +3,6 @@
 namespace KWIO\Theme;
 
 use KWIO\GutenbergBlocks\BaseBlock;
-use KWIO\Theme\Component\BaseComponent;
 
  function get_icon(string $icon, string $className = ''): string {
     $iconSpritePath = get_dist_directory() . '/images/icon-sprite.svg';
@@ -99,9 +98,20 @@ function render_block(string $blockSlugOrClassName, array $attrs = []): string {
     ]);
 }
 
-function render_component(BaseComponent $componentInstance): string {
-    $componentDirPath = dirname(__FILE__, 2) . '/components/';
-    $componentInstance->setDirPath($componentDirPath);
+function set_nav_menu_depth(array $depthsByLocation): void {
+    add_action('admin_enqueue_scripts', function ($hook) use ($depthsByLocation) {
+        if ($hook !== 'nav-menus.php') {
+            return;
+        }
 
-    return $componentInstance->render();
+        $menuLocations = get_nav_menu_locations();
+        $currentMenuId = !empty($_GET['menu']) ? intval($_GET['menu']) : intval(get_user_option('nav_menu_recently_edited'));
+
+        foreach ($depthsByLocation as $location => $depth) {
+            $menuId = intval($menuLocations[$location]);
+            if (!empty($menuId) && $menuId === $currentMenuId) {
+                printf('<script>wpNavMenu.options.globalMaxDepth = %d;</script>', $depth);
+            }
+        }
+    });
 }

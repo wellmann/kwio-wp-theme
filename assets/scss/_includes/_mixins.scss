@@ -1,0 +1,5 @@
+@mixin make-heading($level: 6) {
+  font-family: var(--wp--custom--h-#{$level}--font-family);
+  font-size: var(--wp--custom--h-#{$level}--font-size);
+  font-weight: var(--wp--custom--h-#{$level}--font-weight);
+}

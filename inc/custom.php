@@ -14,6 +14,12 @@
         'footer-nav' => __('Footer', 'kwio-wp-theme')
     ]);
 
+    set_nav_menu_depth([
+        'meta-nav' => 0,
+        'primary-nav' => 2,
+        'footer-nav' => 0
+    ]);
+
     add_post_type_support('page', 'excerpt');
 });
 

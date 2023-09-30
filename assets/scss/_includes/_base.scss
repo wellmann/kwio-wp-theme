@@ -1,4 +1,3 @@
-@use "sass:math";
 @use "variables" as *;
 
 * {
@@ -10,17 +9,6 @@
   }
 }
 
-// Properties apparently need to be declared with random values for below ::selection statement to have an effect.
-:root {
-  --wp--preset--color--primary: #000;
-  --wp--custom--color--body--text: #fff;
-}
-
-::selection {
-  background-color: var(--wp--preset--color--primary);
-  color: var(--wp--custom--color--body--text);
-}
-
 html {
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
@@ -28,8 +16,8 @@ html {
 }
 
 body {
-  padding-inline-start: var(--wp--style--root--padding-left);
-  padding-inline-end: var(--wp--style--root--padding-right);
+  padding-left: var(--wp--style--root--padding-left);
+  padding-right: var(--wp--style--root--padding-right);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -80,13 +68,25 @@ p {
   }
 }
 
+a {
+  main & {
+    text-underline-offset: .1em;
+  }
+}
+
 figure {
   margin: 0;
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
+}
+
+video {
+  display: block;
+  width: 100%;
 }
 
 iframe {
@@ -96,18 +96,13 @@ iframe {
 }
 
 .skip-link:focus {
-  background-color: pink;
   clip: auto !important;
   clip-path: none;
-  color: $text-color-inverted;
-  display: block;
-  font-size: 1em;
   height: auto;
   left: 5px;
   line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
   top: 5px;
   width: auto;
   z-index: 100000;
+  overflow: visible;
 }

@@ -1,0 +1,87 @@
+@use "variables" as *;
+@use "functions" as f;
+@use "themeJson.js" as themeJson;
+
+.alignfull {
+  margin-left: calc(var(--wp--style--root--padding-left) * -1);
+  margin-right: calc(var(--wp--style--root--padding-right) * -1);
+  padding-left: var(--wp--style--root--padding-left);
+  padding-right: var(--wp--style--root--padding-right);
+}
+
+.has-background {
+  padding: 2rem;
+
+  &.alignfull,
+  &.alignwide {
+    @media (min-width: $mobile-breakpoint) {
+      padding-block: var(--wp--style--block-gap);
+    }
+  }
+
+  &.alignfull {
+
+    & + & {
+      margin-block-start: 0 !important;
+    }
+  }
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+@each $slug, $color in themeJson.$colors {
+  .has-#{"" + $slug}-background-color {
+    color: f.contrast-by-luminance($color, var(--wp--preset--color--text-dark), var(--wp--preset--color--text-light));
+  }
+}
+
+// Alignment styles since we are dequeuing wp-block-library-theme
+// https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/common.scss#L35
+
+// Text alignments.
+.has-text-align-center {
+	text-align: center;
+}
+
+.has-text-align-left {
+	/*rtl:ignore*/
+	text-align: left;
+}
+
+.has-text-align-right {
+	/*rtl:ignore*/
+	text-align: right;
+}
+
+// Block alignments.
+.aligncenter {
+	clear: both;
+}
+
+// Justification.
+.items-justified-left {
+	justify-content: flex-start;
+}
+
+.items-justified-center {
+	justify-content: center;
+}
+
+.items-justified-right {
+	justify-content: flex-end;
+}
+
+.items-justified-space-between {
+	justify-content: space-between;
+}
