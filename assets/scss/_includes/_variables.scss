@@ -3,9 +3,3 @@ $mobile-breakpoint-navigation: 850px;
 
 // Usage in strings: #{$theme-path}
 $theme-path : #{"../../.."} !default;
-
-// Export variables to JS.
-:export {
-  mobileBreakpoint: $mobile-breakpoint;
-  mobileBreakpointNavigation: $mobile-breakpoint-navigation;
-}

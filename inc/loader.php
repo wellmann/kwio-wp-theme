@@ -16,7 +16,7 @@ add_action('login_enqueue_scripts', function () {
     }
 
     wp_register_style('global-styles', false);
-    wp_add_inline_style('global-styles', wp_get_global_stylesheet());
+    wp_add_inline_style('global-styles', wp_get_global_stylesheet(['variables']));
     wp_enqueue_style('global-styles');
 });
 

@@ -62,7 +62,9 @@
     },
     "layout": {
       "contentSize": "960px",
-      "wideSize": "1024px"
+      "wideSize": "1024px",
+      "allowEditing": false,
+      "allowCustomContentAndWideSize": false
     },
     "spacing": {
       "blockGap": true,
@@ -97,6 +99,26 @@
         }
       ]
     },
+    "dimensions": {
+      "defaultAspectRatios": false,
+      "aspectRatios": [
+        {
+					"name": "4:3",
+					"slug": "4-3",
+					"ratio": "4/3"
+				},
+        {
+					"name": "16:9",
+					"slug": "16-9",
+					"ratio": "16/9"
+				},
+        {
+					"name": "9:16",
+					"slug": "9-16",
+					"ratio": "9/16"
+				}
+      ]
+    },
     "typography": {
       "customFontSize": false,
       "fontStyle": false,
@@ -112,75 +134,75 @@
       "dropCap": false,
       "fontSizes": [
         {
-          "name": "100",
-          "slug": "100",
-          "size": "1rem",
+          "name": "14",
+          "slug": "14",
+          "size": "14px",
           "fluid": {
-            "min": "0.75rem",
-            "max": "1rem"
+            "min": "12px",
+            "max": "14px"
           }
         },
         {
-          "name": "200",
-          "slug": "200",
-          "size": "1.125rem",
+          "name": "16",
+          "slug": "16",
+          "size": "16px",
           "fluid": {
-            "min": "0.875rem",
-            "max": "1.125rem"
+            "min": "14px",
+            "max": "16px"
           }
         },
         {
-          "name": "300",
-          "slug": "300",
-          "size": "1.25rem",
+          "name": "20",
+          "slug": "20",
+          "size": "20px",
           "fluid": {
-            "min": "1rem",
-            "max": "1.25rem"
+            "min": "17px",
+            "max": "20px"
           }
         },
         {
-          "name": "400",
-          "slug": "400",
-          "size": "1.3125rem",
+          "name": "26",
+          "slug": "26",
+          "size": "26px",
           "fluid": {
-            "min": "1.125rem",
-            "max": "1.3125rem"
+            "min": "22px",
+            "max": "26px"
           }
         },
         {
-          "name": "500",
-          "slug": "500",
-          "size": "2rem",
+          "name": "30",
+          "slug": "30",
+          "size": "30px",
           "fluid": {
-            "min": "1.625rem",
-            "max": "2rem"
+            "min": "25px",
+            "max": "30px"
           }
         },
         {
-          "name": "600",
-          "slug": "600",
-          "size": "2.75rem",
+          "name": "40",
+          "slug": "40",
+          "size": "40px",
           "fluid": {
-            "min": "2.25rem",
-            "max": "2.75rem"
+            "min": "34px",
+            "max": "40px"
           }
         }
       ],
       "fontFamilies": [
         {
-          "name": "Base",
-          "slug": "base",
-          "fontFamily": "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif"
+          "name": "Helvetica",
+          "slug": "helvetica",
+          "fontFamily": "Helvetica, sans-serif"
         },
         {
-          "name": "Heading",
-          "slug": "heading",
-          "fontFamily": "Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"
+          "name": "Times",
+          "slug": "times",
+          "fontFamily": "Times, sans-serif"
         },
         {
-          "name": "Mono",
-          "slug": "mono",
-          "fontFamily": "Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace"
+          "name": "Consolas",
+          "slug": "consolas",
+          "fontFamily": "Consolas, sans-serif"
         }
       ]
     },
@@ -210,9 +232,43 @@
           "margin": true
         }
       },
+      "core/heading": {
+        "color": {
+          "text": false,
+          "background": false
+        }
+      },
       "core/paragraph": {
         "color": {
-          "background": false
+          "text": true,
+          "background": false,
+          "link": false,
+          "palette": [
+            {
+              "name": "Body Text",
+              "slug": "body-text",
+              "color": "#000000"
+            },
+            {
+              "name": "Body Link",
+              "slug": "body-link",
+              "color": "#0074D9"
+            }
+          ]
+        },
+        "typography": {
+          "fontFamilies": [],
+          "fontSizes": [
+            {
+              "name": "20",
+              "slug": "20",
+              "size": "20px",
+              "fluid": {
+                "min": "17px",
+                "max": "20px"
+              }
+            }
+          ]
         }
       }
     },
@@ -273,6 +329,7 @@
       "text": "var(--wp--preset--color--body-text)"
     },
     "typography": {
+      "fontSize": "var(--wp--preset--font-size--20)",
       "fontFamily": "var(--wp--custom--font-family--base)",
       "lineHeight": "1.4"
     },

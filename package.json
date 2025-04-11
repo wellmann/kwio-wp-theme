@@ -15,18 +15,13 @@
     "start": "npm run watch",
     "watch": "webpack -w --mode=development",
     "build": "webpack --mode=production",
-    "testo": "sass assets/scss/_variables.scss | sass-export -o dist/token.json -d assets/scss/",
-    "postbuild": "node ./bin/generate-theme-json.js",
-    "theme-json-scss": "json-to-scss ./theme.json ./build/ --fk"
+    "update-theme-json": "yes | inject-design-tokens --tokenCssPath=design-tokens.css && cd ../../.. && wp-env run cli wp kwio generate-theme-json-css-variables"
   },
   "dependencies": {
-    "@wellmann/gutenberg-blocks-components": "git+https://git@github.com/wellmann/gutenberg-blocks-components.git#103244f0551e0d20081b186ebdbe645cc55ffaf4",
+    "@wellmann/gutenberg-blocks-components": "git+https://git@github.com/wellmann/gutenberg-blocks-components.git#df6f7407a93c512f3b85ca9bc9236ef2bcc70ed5",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
-    "@automattic/remove-asset-webpack-plugin": "^1.0.19",
-    "custom-property-extract": "^1.2.1",
-    "json-to-scss": "^1.6.2",
-    "lodash": "^4.17.21"
+    "@automattic/remove-asset-webpack-plugin": "^1.0.19"
   }
 }

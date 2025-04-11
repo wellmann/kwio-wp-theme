@@ -5,6 +5,13 @@
 
  namespace KWIO\Theme;
 
+ // Remove core block individual styles.
+add_action('wp_enqueue_scripts', function () {
+    foreach (['heading', 'list'] as $block) {
+        wp_dequeue_style('wp-block-' . $block);
+    }
+}, 11);
+
  add_action('after_setup_theme', function () {
     load_theme_textdomain('kwio-wp-theme', get_template_directory() . '/lang');
 

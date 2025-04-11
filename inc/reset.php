@@ -92,12 +92,8 @@ add_filter('script_loader_tag', fn($tag) => !is_admin() ? str_replace(' src', ' 
 // Only load core block styles which are rendered on the current page.
 add_filter('should_load_separate_core_block_assets', '__return_true');
 
-// Remove core block general and individual styles.
+// Remove core block general styles.
 add_action('wp_enqueue_scripts', function () {
-    foreach (['heading', 'list'] as $block) {
-        wp_dequeue_style('wp-block-' . $block);
-    }
-
     wp_dequeue_style('wp-block-library');
 }, 11);
 
